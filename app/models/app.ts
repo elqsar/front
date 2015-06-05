@@ -18,6 +18,7 @@ module demoApp {
         .controller('TechnologyController', TechnologyController)
         .controller('HomeController', HomeController)
         .controller('AddProjectDialogController', AddProjectDialogController)
+        .controller('AddTechnologyDialogController', AddTechnologyDialogController)
         .service('TechnologyService', TechnologyService)
         .service('ProjectService', ProjectService)
         .service('PersonService', PersonService);
