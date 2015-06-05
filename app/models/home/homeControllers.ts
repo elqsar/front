@@ -54,13 +54,18 @@ module demoApp {
             private projectService: ProjectService,
             private $modal: any
         ) {
-            techsService.getAllTechs().then((techs) => {
-                $scope.technologies = techs;
-            });
 
-            projectService.getAllProjects().then((projects) => {
-                $scope.projects = projects;
-            });
+            function loadTechnologies() {
+                techsService.getAllTechs().then((techs: Array<Technology>) => {
+                    $scope.technologies = techs;
+                });
+            }
+
+            function loadProjects() {
+                projectService.getAllProjects().then((projects: Array<Project>) => {
+                    $scope.projects = projects;
+                });
+            }
 
 
             $scope.addProject = () => {
@@ -68,8 +73,11 @@ module demoApp {
                     templateUrl: 'template/dialog/add-project.html',
                     windowClass: 'new-project',
                     controller : 'AddProjectDialogController'
-                });
+                }).result.then(loadProjects);
            };
+
+            loadTechnologies();
+            loadProjects();
 
         }
 
