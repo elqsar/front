@@ -10,7 +10,7 @@ module demoApp {
     'use strict';
 
     angular
-        .module('hakkaStack', ['ui.router', 'restangular', 'mm.foundation'])
+        .module('hakkaStack', ['ui.router', 'restangular', 'mm.foundation', 'ui.select', 'ngSanitize'])
         .config(demoApp.config.routesConfig)
         .config((RestangularProvider : restangular.IProvider) => {
             RestangularProvider.setBaseUrl('http://private-65917-hakkastack.apiary-mock.com');

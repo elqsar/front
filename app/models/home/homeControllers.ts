@@ -6,14 +6,34 @@ module demoApp {
     'use strict';
 
     export class AddProjectDialogController {
-        public static $inject = ['$scope', '$modalInstance'];
-        constructor(private $scope: any, private $modalInstance: any) {
-            console.log('created');
-            this.$scope.cancel = () => {
-                console.log('Closed');
-                this.$modalInstance.dismiss('cancel');
+        public static $inject = ['$scope', '$modalInstance', 'TechnologyService', 'ProjectService'];
+        constructor(
+            private $scope: any,
+            private $modalInstance: any,
+            private technologyService: TechnologyService,
+            private projectService: ProjectService
+        ) {
+
+            $scope.technologies = [];
+            $scope.project = {};
+
+            technologyService.getAllTechs().then((techs) => {
+                $scope.technologies = techs;
+            });
+
+            var closeModal = () => {
+                $modalInstance.dismiss('cancel');
             };
+
+            this.$scope.save = () => {
+                projectService
+                    .createProject($scope.project)
+                    .then(closeModal);
+            };
+
+            this.$scope.cancel = () =>  closeModal();
         }
+
     }
 
 
