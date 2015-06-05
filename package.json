@@ -30,7 +30,8 @@
     "gulp-sourcemaps": "^1.5.1",
     "gulp-tslint": "^1.4.4",
     "gulp-typescript": "^2.5.0",
+    "main-bower-files": "^2.8.0",
     "gulp-webserver": "^0.9.1",
-    "gulp-concat-vendor" : "^0.0.4"
+    "gulp-filter": "^2.0.2"
   }
 }
