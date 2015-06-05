@@ -21,17 +21,13 @@ module demoApp {
                 $scope.technologies = techs;
             });
 
-            var closeModal = () => {
-                $modalInstance.dismiss('cancel');
-            };
-
             this.$scope.save = () => {
                 projectService
                     .createProject($scope.project)
-                    .then(closeModal);
+                    .then(() => $modalInstance.close());
             };
 
-            this.$scope.cancel = () =>  closeModal();
+            this.$scope.cancel = () =>  $modalInstance.dismiss('cancel');
         }
 
     }
@@ -73,7 +69,7 @@ module demoApp {
                     templateUrl: 'template/dialog/add-project.html',
                     windowClass: 'new-project',
                     controller : 'AddProjectDialogController'
-                }).result.then(loadProjects);
+                }).result.then(loadProjects, loadProjects);
            };
 
             loadTechnologies();
