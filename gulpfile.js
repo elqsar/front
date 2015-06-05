@@ -9,6 +9,7 @@ var gulp = require('gulp-help')(require('gulp')),
     sourcemaps = require('gulp-sourcemaps'),
     del = require('del'),
     bower = require('gulp-bower'),
+    sass = require('gulp-sass'),
     less = require('gulp-less'),
     minifyCss = require('gulp-minify-css'),
     //batch = require('gulp-batch'),
@@ -98,6 +99,17 @@ gulp.task('bower', 'Include bower stuff', function() {
         .pipe(gulp.dest(config.publicJsComponentsDir));
 });
 
+
+gulp.task('sass', 'Sass -> css', function () {
+    return gulp.src(config.allSassFiles)
+      .pipe(sass({
+        includePaths: ['bower_components/foundation/scss']
+      }))
+      .pipe(concat('style.css'))
+      .pipe(gulp.dest(config.compiledCssDir));
+} );
+
+
 gulp.task('less', 'Less -> css', function () {
     return gulp.src(config.allLessFiles)
         .pipe(less())
@@ -109,13 +121,14 @@ gulp.task('less', 'Less -> css', function () {
 
 gulp.task('watch', 'Watch for changes and build it all.' , ['build'], function() {
     gulp.watch(config.allTypeScript, ['ts-lint', 'compile-ts', 'gen-ts-refs']);
-    gulp.watch(config.lessDir, ['less']);
+    gulp.watch(config.allLessFiles, ['less']);
+    gulp.watch(config.allSassFiles, ['sass']);
     gulp.watch(config.assets, ['assets']);
     gulp.watch('./bower.json', ['bower']);
 
 });
 
-gulp.task('build', 'Build it once', ['bower', 'less', 'ts-lint', 'compile-ts', 'assets']);
+gulp.task('build', 'Build it once', ['bower', 'sass' , 'less', 'ts-lint', 'compile-ts', 'assets']);
 
 gulp.task('serve', 'Serve the generated stuff.', ['watch'], function() {
 //    gulp.start();

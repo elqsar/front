@@ -1,0 +1,29 @@
+@import 'bower_components/foundation/scss/foundation.scss';
+// @import 'assets/foundation-icons/foundation-icons.css';
+/* 
+COLORS
+ */
+$black: #333;
+
+
+body {
+	color: $black;
+}
+
+
+// MODALS:
+.new-project {
+	.tech-list ul {
+		list-style-type: none;
+	}
+	.selected-technology {
+		@extend .alert-box;
+		@extend .secondary;
+		@extend .round;
+	    display: inline-block !important;
+	    height: auto;
+	    line-height: 1;
+	    max-width: 20rem;
+	    padding: 0.5rem 2rem 0.5rem 1rem !important;
+	}
+}
