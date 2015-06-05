@@ -1,6 +1,6 @@
 /// <reference path='../typings/angularjs/angular.d.ts' />
 /// <reference path='config/routes.ts' />
-/// <reference path='controller.ts' />
+/// <reference path='technology/technologyController.ts' />
 
 
 module demoApp {
@@ -12,6 +12,6 @@ module demoApp {
         .config((RestangularProvider : restangular.IProvider) => {
             RestangularProvider.setBaseUrl('http://private-65917-hakkastack.apiary-mock.com');
         })
-        .controller('DemoController', DemoController)
-        .service('TechsService', TechsService);
+        .controller('TechnologyController', TechnologyController)
+        .service('TechnologyService', TechnologyService);
 }
