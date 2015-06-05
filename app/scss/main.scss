@@ -12,11 +12,13 @@ body {
 
 
 // MODALS:
-.new-project {
+.new-project,
+.new-technology,
+.new-person {
 	.tech-list ul {
 		list-style-type: none;
 	}
-	.selected-technology {
+	.selected-item {
 		@extend .alert-box;
 		@extend .secondary;
 		@extend .round;

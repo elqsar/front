@@ -129,7 +129,7 @@
 <div class="row">
 	<div class="large-4 columns">
 		<div class="panel clearfix">
-			<button class="tiny round primary right" data-reveal-id="myModal">Add</button>
+			<button class="tiny round primary right" data-reveal-id="add-project">Add</button>
 			<h2>Projects</h2>
 			<ul>
 				<li>Mayoris</li>
@@ -143,18 +143,20 @@
 	</div>
 	<div class="large-4  columns">
 		<div class="panel">
+			<button class="tiny round primary right" data-reveal-id="add-technology">Add</button>
 			<h2>Technologies</h2>
 		</div>
 	</div>
 	<div class="large-4 columns">
 		<div class="panel">
+			<button class="tiny round primary right" data-reveal-id="add-person">Add</button>
 			<h2>People</h2>
 		</div>
 	</div>
 </div>
 
 
-<div id="myModal" class="reveal-modal new-project" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+<div id="add-project" class="reveal-modal new-project" data-reveal aria-labelledby="New Project" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Add new project</h2>
   <!-- <p class="lead">Your couch.  It is mine.</p> -->
   <form>
@@ -178,7 +180,6 @@
       </label>
     </div>
     <div class="large-10 columns tech-list">
-
     	<div class="row collapse">
     		<div class="small-10 columns">
 			    <input type="text" id="right-label" placeholder="Add technology to project">
@@ -187,17 +188,15 @@
     			<a href="#" class="button postfix success">Select</a>
     		</div>
     	</div>
-
-
-		<div data-alert class="selected-technology">
+		<div data-alert class="selected-item">
 		  Angular
 		  <a href="#" class="close">&times;</a>
 		</div>
-		<div data-alert class="selected-technology">
+		<div data-alert class="selected-item">
 		  Spring
 		  <a href="#" class="close">&times;</a>
 		</div>
-		<div data-alert class="selected-technology">
+		<div data-alert class="selected-item">
 		  CoolFeature Generator
 		  <a href="#" class="close">&times;</a>
 		</div>
@@ -210,7 +209,6 @@
       </label>
     </div>
     <div class="large-10 columns tech-list">
-
     	<div class="row collapse">
     		<div class="small-10 columns">
 			    <input type="text" id="right-label" placeholder="Add person to project">
@@ -219,34 +217,139 @@
     			<a href="#" class="button postfix success">Select</a>
     		</div>
     	</div>
-
-
-
-		<div data-alert class="selected-technology">
+		<div data-alert class="selected-item">
 		  Bob Stalmach
 		  <a href="#" class="close">&times;</a>
 		</div>
-		<div data-alert class="selected-technology">
+		<div data-alert class="selected-item">
 		  Vit Koma
 		  <a href="#" class="close">&times;</a>
 		</div>
-		<div data-alert class="selected-technology">
+		<div data-alert class="selected-item">
 		  Martin Dobias
 		  <a href="#" class="close">&times;</a>
 		</div>
     </div>
   </div>
 </form>
-
-	<hr>
+<hr>
   <button type="submit" class="small">Create new project</button>
   <a href="#" class="button secondary small" aria-label="Close">Cancel</a>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
 
+<div id="add-technology" class="reveal-modal new-technology" data-reveal aria-labelledby="New Technology" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Add new project</h2>
+  <!-- <p class="lead">Your couch.  It is mine.</p> -->
+  <form>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Technology name
+        <input type="text" placeholder="Enter technology project name" />
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Technology icon
+        <input type="file" placeholder="Technology icon" />
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Technology description
+        <textarea placeholder="Enter project description"></textarea>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-2 columns">
+      <label>Type of technology
+      </label>
+    </div>
+    <div class="large-10 columns tech-list">
+    	<div class="row collapse">
+    		<div class="small-10 columns">
+			    <input type="text" id="right-label" placeholder="Add technology to project">
+    		</div>
+    		<div class="small-2 columns">
+    			<a href="#" class="button postfix success">Select</a>
+    		</div>
+    	</div>
+		<div data-alert class="selected-item">
+		  Javascript
+		  <a href="#" class="close">&times;</a>
+		</div>
+    </div>
+  </div>
+<hr>
+</form>
+<hr>
+  <button type="submit" class="small">Add new technology</button>
+  <a href="#" class="button secondary small" aria-label="Close">Cancel</a>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 
-
+<div id="add-person" class="reveal-modal new-person" data-reveal aria-labelledby="Add new person" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Add new person</h2>
+  <!-- <p class="lead">Your couch.  It is mine.</p> -->
+  <form>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Name
+        <input type="text" placeholder="Enter name of person" />
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-2 columns">
+      <label>Works on projects
+      </label>
+    </div>
+    <div class="large-10 columns tech-list">
+    	<div class="row collapse">
+    		<div class="small-10 columns">
+			    <input type="text" id="right-label" placeholder="Add Project">
+    		</div>
+    		<div class="small-2 columns">
+    			<a href="#" class="button postfix success">Select</a>
+    		</div>
+    	</div>
+		<div data-alert class="selected-item">
+		  Mayoris
+		  <a href="#" class="close">&times;</a>
+		</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-2 columns">
+      <label>Knows a technology
+      </label>
+    </div>
+    <div class="large-10 columns tech-list">
+    	<div class="row collapse">
+    		<div class="small-10 columns">
+			    <input type="text" id="right-label" placeholder="Add Project">
+    		</div>
+    		<div class="small-2 columns">
+    			<a href="#" class="button postfix success">Select</a>
+    		</div>
+    	</div>
+		<div data-alert class="selected-item">
+		  Mayoris
+		  <a href="#" class="close">&times;</a>
+		</div>
+    </div>
+  </div>
+<hr>
+</form>
+<hr>
+  <button type="submit" class="small">Add Person</button>
+  <a href="#" class="button secondary small" aria-label="Close">Cancel</a>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 
 
 <footer class="row">
