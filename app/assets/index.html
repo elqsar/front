@@ -2,21 +2,48 @@
 <html lang="en" ng-app="hakkaStack" data-framework="typescript">
 <head>
     <meta charset="utf-8">
-    <title>Typescript & AngularJS</title>
+    <title>Hakka Stack</title>
     <style>[ng-cloak] { display: none; }</style>
     <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body class="ng-cloak">
+<body>
 
-<div class="main">
-    Name : {{name}}
-</div>
-<div ui-view>
-    <input ng-model="name">
-</div>
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
 
+        <li class="name">
+            <h1>
+                <a href="#">
+                    Hakka Stack
+                </a>
+            </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+    </section>
+</nav>
+
+<div ui-view></div>
+
+
+<footer class="row">
+    <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+            <div class="large-6 columns">
+                <p>© Copyright no one at all. Go to town.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="js_components/vendor.js"></script>
 <script src="js/app.js"></script>
+<script>
+    $(document).foundation();
+</script>
 </body>
 </html>

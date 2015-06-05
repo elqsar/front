@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="large-12 columns">
+        <div class="panel">
+            <h1>What the heck is Hakka Stack?</h1>
+            <p class="lead">
+                Get overview of:
+            </p>
+            <ul>
+                <li>projects done in CN</li>
+                <li>technologies used</li>
+                <li>people working on projects</li>
+                <li>skills our people have with technologies</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="large-4 columns">
+        <div class="panel clearfix">
+            <button class="tiny round primary right" ng-click="addProject()">Add</button>
+            <h2>Projects</h2>
+            <li ng-repeat="project in projects | limitTo: 10">
+                <div>
+                    <strong>{{project.name}}</strong>
+                </div>
+                <div>
+                    <i>{{project.description}}</i>
+                </div>
+            </li>
+
+        </div>
+    </div>
+    <div class="large-4  columns">
+        <div class="panel">
+            <h2>Technologies</h2>
+            <ul>
+                <li ng-repeat="tech in technologies | limitTo: 10">{{tech.name}}<img width="16px" ng-src="{{tech.icon}}"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="large-4 columns">
+        <div class="panel">
+            <h2>People</h2>
+        </div>
+    </div>
+</div>
+
+

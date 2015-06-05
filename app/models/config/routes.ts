@@ -3,11 +3,12 @@
 module demoApp.config {
 
     export function routesConfig($stateProvider:ng.ui.IStateProvider, $urlRouterProvider:ng.ui.IUrlRouterProvider) {
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('home', {
-            url: '/home',
-            template: '<b>Home</b>'
+            url: '/',
+            controller: 'HomeController',
+            templateUrl: 'template/home.html'
         }).state('test', {
             url: '/test',
             templateUrl: 'template/demo.html',
