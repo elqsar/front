@@ -30,6 +30,10 @@ module demoApp {
         getProjectTechnologies(project: Project) {
             return this.Restangular.one('projects', project.id).all('technologies');
         }
+
+        setProjectTechnologies(project: Project, technologies: Technology[]) {
+            return this.Restangular.one('projects', project.id).all('technologies').put(technologies);
+        }
     }
 
 }
