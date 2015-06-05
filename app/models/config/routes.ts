@@ -10,10 +10,7 @@ module demoApp.config {
             template: '<b>Home</b>'
         }).state('test', {
             url: '/test',
-            template: '<b>Test</b>',
-            controller: () => {
-                console.log('Called');
-            }
+            controller: 'DemoController'
         });
 
     }

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 
-/// <reference path="../angular/angular.d.ts" />
+/// <reference path="../angularjs/angular.d.ts" />
 
 
 declare module restangular {

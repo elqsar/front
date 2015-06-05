@@ -9,6 +9,9 @@ module demoApp {
     angular
         .module('hakkaStack', ['ui.router', 'restangular'])
         .config(demoApp.config.routesConfig)
+        .config((RestangularProvider : restangular.IProvider) => {
+            RestangularProvider.setBaseUrl('http://hakkastack.apiblueprint.org');
+        })
         .controller('DemoController', DemoController)
         .service('TechsService', TechsService);
 }

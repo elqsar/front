@@ -19,7 +19,7 @@ module demoApp {
         }
 
         getAllTechs() {
-            return this.Restangular.allUrl('techs', 'http://hakkastack.apiblueprint.org/techs').getList();
+            return this.Restangular.all('techs').getList();
         }
 
     }
