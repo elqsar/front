@@ -36,7 +36,7 @@
             <button class="tiny round primary right" ng-click="addTechnology()">Add</button>
             <h3>Technologies</h3>
             <ul>
-                <li ng-repeat="tech in technologies | limitTo: 10"><img width="30px" ng-src="{{tech.icon}}" class="technology-icon">{{tech.name}}</li>
+                <li class="no-dot" ng-repeat="tech in technologies | limitTo: 10 | orderBy: 'name'"><img width="30px" ng-src="{{tech.icon}}" class="technology-icon">{{tech.name}}</li>
             </ul>
         </div>
     </div>

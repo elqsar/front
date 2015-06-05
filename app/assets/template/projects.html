@@ -1,12 +1,17 @@
 <div class="row">
     <h2>Projects </h2>
-    <table class="table">
-        <tr ng-repeat="project in projects | orderBy : 'name'" ui-sref="project/{{project.id}}">
-            <td><strong>{{project.name}}</strong></td>
+    <table class="table large-12">
+        <tr>
+            <th>Project</th>
+            <th>Description</th>
+            <th>Technologies</th>
+        </tr>
+        <tr ng-repeat="project in projects | orderBy : 'name'">
+            <td><a ui-sref="project({'projectId' : project.id})"><strong>{{project.name}}</strong></a></td>
             <td><i>{{project.description}}</i></td>
             <td>
                 <div ng-repeat="technology in project._technologies | orderBy: 'name'">
-                    <img width="16px" ng-src="{{tech.icon}}">{{tech.name}}</li> &nbsp; {{technology.name}}
+                    <img width="30px" ng-src="{{technology.icon}}" class="technology-icon">{{technology.name}}
                 </div>
             </td>
         </tr>
