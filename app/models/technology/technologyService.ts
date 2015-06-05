@@ -13,7 +13,7 @@ module demoApp {
         }
 
         getAllTechs() {
-            return this.Restangular.all('techs').getList();
+            return this.Restangular.all('technologies').getList();
         }
 
     }
