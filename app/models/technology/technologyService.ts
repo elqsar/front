@@ -16,6 +16,9 @@ module demoApp {
             return this.Restangular.all('technologies').getList();
         }
 
+        createTechnology(technology: Technology) {
+            return this.Restangular.all('technologies').post(technology);
+        }
     }
 
 }
