@@ -14,17 +14,21 @@ module demoApp {
             return this.Restangular.all('projects').getList();
         }
 
-        createProject(project) {
+        createProject(project: Project) {
             return this.Restangular.all('projects').post(project);
         }
 
-        updateProject(project) {
+        updateProject(project: Project) {
             var projectCopy = this.Restangular.copy(project);
             return this.Restangular.one('projects', project.id).put(projectCopy);
         }
 
-        deleteProject(project) {
+        deleteProject(project: Project) {
             return this.Restangular.one('projects', project.id).remove();
+        }
+
+        getProjectTechnologies(project: Project) {
+            return this.Restangular.one('projects', project.id).all('technologies');
         }
     }
 
