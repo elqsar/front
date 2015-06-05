@@ -18,16 +18,17 @@
     <div class="large-4 columns">
         <div class="panel clearfix">
             <button class="tiny round primary right" ng-click="addProject()">Add</button>
-            <h3>Projects</h3>
+            <h3><a ui-sref="projects">Projects</a></h3>
             <li ng-repeat="project in projects | limitTo: 10">
                 <div>
-                    <strong>{{project.name}}</strong>
+                    <a ui-sref="project({'projectId' : project.id})">
+                        <strong>{{project.name}}</strong>
+                    </a>
                 </div>
                 <div>
                     <i>{{project.description}}</i>
                 </div>
             </li>
-
         </div>
     </div>
     <div class="large-4  columns">

@@ -25,7 +25,8 @@
                     <ui-select multiple ng-model="project.technologies" theme="select2" ng-disabled="disabled" class="small-10 columns">
                         <ui-select-match placeholder="Select technology...">{{$item.name}} </ui-select-match>
                         <ui-select-choices repeat="technology in technologies | filter: {name: $select.search}">
-                            <div ng-bind-html="technology.name | highlight: $select.search"></div>
+                            <img ng-src="{{technology.icon}}" width="20px">
+                            <span ng-bind-html="technology.name | highlight: $select.search"></span>
                         </ui-select-choices>
                     </ui-select>
                 </div>

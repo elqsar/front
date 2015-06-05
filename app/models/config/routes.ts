@@ -9,10 +9,14 @@ module demoApp.config {
             url: '/',
             controller: 'HomeController',
             templateUrl: 'template/home.html'
-        }).state('test', {
-            url: '/test',
-            templateUrl: 'template/demo.html',
-            controller: 'TechnologyController'
+        }).state('projects', {
+            url: '/projects',
+            templateUrl: 'template/projects.html',
+            controller: 'ProjectsController'
+        }).state('project', {
+            url: '/project/:projectId',
+            templateUrl: 'template/project.html',
+            controller: 'ProjectController'
         });
 
     }

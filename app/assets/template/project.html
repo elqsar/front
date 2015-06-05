@@ -1,0 +1,23 @@
+<div class="row">
+    <h2>Project {{project.name}} </h2>
+
+    <div class="panel">
+        {{project.description}}
+    </div>
+
+    <h3>Technologies</h3>
+    <table class="table">
+        <tr ng-repeat="tech in project._technologies | orderBy: 'name'">
+            <td>
+                <img width="30px" ng-src="{{tech.icon}}">
+            </td>
+            <td>
+                <strong>{{tech.name}}</strong>
+            </td>
+             <td>
+                 <i>{{tech.description}}</i>
+             </td>
+        </tr>
+    </table>
+</div>
+

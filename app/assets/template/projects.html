@@ -1,0 +1,15 @@
+<div class="row">
+    <h2>Projects </h2>
+    <table class="table">
+        <tr ng-repeat="project in projects | orderBy : 'name'" ui-sref="project/{{project.id}}">
+            <td><strong>{{project.name}}</strong></td>
+            <td><i>{{project.description}}</i></td>
+            <td>
+                <div ng-repeat="technology in project._technologies | orderBy: 'name'">
+                    <img width="16px" ng-src="{{tech.icon}}">{{tech.name}}</li> &nbsp; {{technology.name}}
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+

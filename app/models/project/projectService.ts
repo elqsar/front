@@ -12,6 +12,10 @@ module demoApp {
                     private $q: ng.IQService) {
         }
 
+        getProject(projectId: number) {
+            return this.Restangular.one('projects', projectId).get();
+        }
+
         getAllProjects() {
             return this.Restangular.all('projects').getList();
         }

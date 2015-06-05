@@ -2,8 +2,8 @@
 /// <reference path='config/routes.ts' />
 /// <reference path='technology/technologyController.ts' />
 /// <reference path='home/homeControllers.ts' />
-/// <reference path='home/homeControllers.ts' />
-
+/// <reference path='project/projectsController.ts' />
+/// <reference path='project/projectController.ts' />
 
 
 module demoApp {
@@ -17,6 +17,8 @@ module demoApp {
         })
         .controller('TechnologyController', TechnologyController)
         .controller('HomeController', HomeController)
+        .controller('ProjectsController', ProjectsController)
+        .controller('ProjectController', ProjectController)
         .controller('AddProjectDialogController', AddProjectDialogController)
         .controller('AddTechnologyDialogController', AddTechnologyDialogController)
         .service('TechnologyService', TechnologyService)
