@@ -3,83 +3,76 @@
     <div class="row">
         <div class="large-12 columns">
             <label>Project name
-                <input type="text" placeholder="Enter project name"/>
+                <input ng-model="project.name" type="text" placeholder="Enter project name"/>
             </label>
         </div>
     </div>
     <div class="row">
         <div class="large-12 columns">
             <label>Project description
-                <textarea placeholder="Enter project description"></textarea>
+                <textarea ng-model="project.description" placeholder="Enter project description"></textarea>
             </label>
         </div>
     </div>
+    <div>
+        {{project}}
+    </div>
     <div class="row">
         <div class="large-2 columns">
-            <label>Used technologies
-            </label>
+            <label>Used technologies</label>
         </div>
         <div class="large-10 columns tech-list">
 
             <div class="row collapse">
                 <div class="small-10 columns">
-                    <input type="text" placeholder="Add technology to project">
-                </div>
-                <div class="small-2 columns">
-                    <a href="#" class="button postfix success">Select</a>
+                    <ui-select multiple ng-model="project.technologies" theme="select2" ng-disabled="disabled" class="small-10 columns">
+                        <ui-select-match placeholder="Select technology...">{{$item.name}} </ui-select-match>
+                        <ui-select-choices repeat="technology in technologies | filter: {name: $select.search}">
+                            <div ng-bind-html="technology.name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
                 </div>
             </div>
 
-
-            <div data-alert class="selected-technology">
-                Angular
-                <a href="#" class="close">&times;</a>
-            </div>
-            <div data-alert class="selected-technology">
-                Spring
-                <a href="#" class="close">&times;</a>
-            </div>
-            <div data-alert class="selected-technology">
-                CoolFeature Generator
-                <a href="#" class="close">&times;</a>
-            </div>
         </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="large-2 columns">
-            <label>People on project
-            </label>
-        </div>
-        <div class="large-10 columns tech-list">
+    <!--   <hr>
 
-            <div class="row collapse">
-                <div class="small-10 columns">
-                    <input type="text" id="right-label" placeholder="Add person to project">
+        <div class="row">
+            <div class="large-2 columns">
+                <label>People on project
+                </label>
+            </div>
+            <div class="large-10 columns tech-list">
+
+                <div class="row collapse">
+                    <div class="small-10 columns">
+                        <input type="text" id="right-label" placeholder="Add person to project">
+                    </div>
+                    <div class="small-2 columns">
+                        <a href="#" class="button postfix success">Select</a>
+                    </div>
                 </div>
-                <div class="small-2 columns">
-                    <a href="#" class="button postfix success">Select</a>
+
+
+                <div data-alert class="selected-technology">
+                    Bob Stalmach
+                    <a href="#" class="close">&times;</a>
+                </div>
+                <div data-alert class="selected-technology">
+                    Vit Koma
+                    <a href="#" class="close">&times;</a>
+                </div>
+                <div data-alert class="selected-technology">
+                    Martin Dobias
+                    <a href="#" class="close">&times;</a>
                 </div>
             </div>
-
-
-            <div data-alert class="selected-technology">
-                Bob Stalmach
-                <a href="#" class="close">&times;</a>
-            </div>
-            <div data-alert class="selected-technology">
-                Vit Koma
-                <a href="#" class="close">&times;</a>
-            </div>
-            <div data-alert class="selected-technology">
-                Martin Dobias
-                <a href="#" class="close">&times;</a>
-            </div>
         </div>
-    </div>
+    -->
 </form>
 
 <hr>
-<button type="submit" class="small">Create new project</button>
+<button type="submit" class="small" ng-click="save()">Create new project</button>
 <a class="button secondary small" ng-click="cancel()" aria-label="Close">Cancel</a>
 <a class="close-reveal-modal" ng-click="cancel()" aria-label="Close">&#215;</a>
