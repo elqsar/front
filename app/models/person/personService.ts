@@ -20,7 +20,7 @@ module demoApp {
 
         updatePerson(person: Person) {
             var personCopy = this.Restangular.copy(person);
-            return this.Restangular.one('persons', person.id).put(personCopy);
+            return this.Restangular.one('persons', person.id).post(personCopy);
         }
 
         deletePerson(person: Person) {

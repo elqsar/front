@@ -18,7 +18,7 @@ module demoApp {
 
         createProject(project: Project) {
             return this.Restangular.all('projects').post(project)
-                .then((newProject: Project) => { this.setProjectTechnologies(newProject, project.technologies) } );
+                .then((newProject: Project) => { this.setProjectTechnologies(newProject, project.technologies); } );
         }
 
         updateProject(project: Project) {
@@ -37,7 +37,7 @@ module demoApp {
         }
 
         setProjectTechnologies(project: Project, technologies: Technology[]) {
-            return this.Restangular.one('projects', project.id).all('technologies').put(technologies);
+            return this.Restangular.one('projects', project.id).all('technologies').post(technologies);
         }
 
         getProjectPersons(project: Project) {
@@ -45,7 +45,7 @@ module demoApp {
         }
 
         setProjectPersons(project: Project, persons: Person[]) {
-            return this.Restangular.one('projects', project.id).all('persons').put(persons);
+            return this.Restangular.one('projects', project.id).all('persons').post(persons);
         }
     }
 
