@@ -10,7 +10,7 @@ module demoApp {
         .module('hakkaStack', ['ui.router', 'restangular'])
         .config(demoApp.config.routesConfig)
         .config((RestangularProvider : restangular.IProvider) => {
-            RestangularProvider.setBaseUrl('http://hakkastack.apiblueprint.org');
+            RestangularProvider.setBaseUrl('http://private-65917-hakkastack.apiary-mock.com');
         })
         .controller('DemoController', DemoController)
         .service('TechsService', TechsService);
