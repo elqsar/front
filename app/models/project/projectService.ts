@@ -4,10 +4,12 @@ module demoApp {
     export class ProjectService {
 
         public static $inject = [
-            'Restangular'
+            'Restangular',
+            '$q'
         ];
 
-        constructor(private Restangular: restangular.IService) {
+        constructor(private Restangular: restangular.IService,
+                    private $q: ng.IQService) {
         }
 
         getAllProjects() {
@@ -15,12 +17,15 @@ module demoApp {
         }
 
         createProject(project: Project) {
-            return this.Restangular.all('projects').post(project);
+            return this.Restangular.all('projects').post(project)
+                .then((newProject: Project) => { this.setProjectTechnologies(newProject, project.technologies) } );
         }
 
         updateProject(project: Project) {
             var projectCopy = this.Restangular.copy(project);
-            return this.Restangular.one('projects', project.id).put(projectCopy);
+            return this.$q.all([this.Restangular.one('projects', project.id).put(projectCopy),
+                this.setProjectTechnologies(project, project.technologies)]
+            );
         }
 
         deleteProject(project: Project) {
@@ -40,7 +45,7 @@ module demoApp {
         }
 
         setProjectPersons(project: Project, persons: Person[]) {
-            return this.Restangular.one.('projects', project.id).all('persons').put(persons);
+            return this.Restangular.one('projects', project.id).all('persons').put(persons);
         }
     }
 

@@ -6,5 +6,6 @@ module demoApp {
         name: string;
         description: string;
         icon: string;
+        technologies: Technology[];
     }
 }
