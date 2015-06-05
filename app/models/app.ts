@@ -13,5 +13,6 @@ module demoApp {
             RestangularProvider.setBaseUrl('http://private-65917-hakkastack.apiary-mock.com');
         })
         .controller('TechnologyController', TechnologyController)
-        .service('TechnologyService', TechnologyService);
+        .service('TechnologyService', TechnologyService)
+        .service('ProjectsService', ProjectsService);
 }
