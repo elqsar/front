@@ -117,7 +117,7 @@ gulp.task('less', 'Less -> css', function () {
     return gulp.src(config.allLessFiles)
         .pipe(less())
         .pipe(minifyCss())
-        .pipe(concat('style.css'))
+        .pipe(concat('styless.css'))
         .pipe(gulp.dest(config.compiledCssDir));
 });
 
