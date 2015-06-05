@@ -1,0 +1,48 @@
+<h2 id="modalTitle">Add new technology</h2>
+<form>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Technology name
+                <input ng-model="technology.name" type="text" placeholder="Enter technology name"/>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Technology icon
+                <input ng-model="technology.icon" type="url" placeholder="Technology icon"/>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Technology description
+                <textarea ng-model="technology.description" placeholder="Enter description"></textarea>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-2 columns">
+            <label>Type of technology
+            </label>
+        </div>
+        <div class="large-10 columns tech-list">
+            <div class="row collapse">
+                <div class="small-10 columns">
+                    <input type="text" id="right-label" placeholder="Add technology type">
+                </div>
+                <div class="small-2 columns">
+                    <a href="#" class="button postfix success">Select</a>
+                </div>
+            </div>
+            <div data-alert class="selected-item">
+                Javascript
+                <a href="#" class="close">&times;</a>
+            </div>
+        </div>
+    </div>
+</form>
+<hr>
+<button type="submit" class="small" ng-click="save();" >Add new technology</button>
+<a class="button secondary small" aria-label="Close" ng-click="cancel();">Cancel</a>
+<a class="close-reveal-modal" aria-label="Close" ng-click="cancel();">&#215;</a>

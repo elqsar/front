@@ -18,7 +18,7 @@ module demoApp {
 
         createProject(project: Project) {
             return this.Restangular.all('projects').post(project)
-                .then((newProject: Project) => { this.setProjectTechnologies(newProject, project.technologies); } );
+                .then((newProject: Project) => { return this.setProjectTechnologies(newProject, project.technologies); } );
         }
 
         updateProject(project: Project) {
