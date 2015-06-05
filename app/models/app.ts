@@ -1,10 +1,11 @@
-/// <reference path='../typings/angular/angular.d.ts' />
-/// <reference path='controller.ts' />
+/// <reference path='../typings/angularjs/angular.d.ts' />
+/// <reference path='config/routes.ts' />
+
 
 module demoApp {
     'use strict';
 
     angular
-        .module('demo-app', [])
-        .controller('DemoController', DemoController);
+        .module('hakkaStack', ['ui.router'])
+        .config(demoApp.config.routesConfig);
 }
