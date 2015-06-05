@@ -14,5 +14,5 @@ module demoApp {
         })
         .controller('TechnologyController', TechnologyController)
         .service('TechnologyService', TechnologyService)
-        .service('ProjectsService', ProjectsService);
+        .service('ProjectService', ProjectService);
 }
