@@ -10,7 +10,7 @@
     <div class="row">
         <div class="large-12 columns">
             <label>Project description
-                <textarea ng-model="project.description" placeholder="Enter project description"></textarea>
+                <textarea ng-model="project.description" placeholder="Enter project description" rows="5"></textarea>
             </label>
         </div>
     </div>
@@ -21,11 +21,15 @@
         <div class="large-10 columns tech-list">
 
             <div class="row collapse">
-                <div class="small-10 columns">
-                    <ui-select multiple ng-model="project.technologies" theme="select2" ng-disabled="disabled" class="small-10 columns">
-                        <ui-select-match placeholder="Select technology...">{{$item.name}} </ui-select-match>
+                <div class="large-12 columns">
+                    <ui-select multiple ng-model="project.technologies" theme="select2" ng-disabled="disabled" class="large-12 columns">
+                        <ui-select-match placeholder="Select technology..." ng-class="selected-tech">
+                            <span class="selected-technology">
+                                {{$item.name}}
+                            </span>
+                        </ui-select-match>
                         <ui-select-choices repeat="technology in technologies | filter: {name: $select.search}">
-                            <img ng-src="{{technology.icon}}" width="20px">
+                            <img ng-src="{{technology.icon}}" width="20px" ng-if="technology.icon">
                             <span ng-bind-html="technology.name | highlight: $select.search"></span>
                         </ui-select-choices>
                     </ui-select>

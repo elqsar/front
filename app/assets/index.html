@@ -6,6 +6,7 @@
     <style>[ng-cloak] { display: none; }</style>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styless.css">
+    <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -47,5 +48,17 @@
 <script>
     $(document).foundation();
 </script>
+
+<script type="text/ng-template" id="select2/match-multiple.tpl.html">
+    <span class="ui-select-match">
+      <li class="ui-select-match-item selected-item" ng-repeat="$item in $select.selected"
+          ng-class="{'select2-search-choice-focus':$selectMultiple.activeMatchIndex === $index, 'select2-locked':$select.isLocked(this, $index)}"
+          ui-select-sort="$select.selected">
+          <span uis-transclude-append></span>
+          <a href="javascript:;" class="ui-select-match-close select2-search-choice-close close-icon" ng-click="$selectMultiple.removeChoice($index)" tabindex="-1"></a>
+      </li>
+</span>
+</script>
+
 </body>
 </html>

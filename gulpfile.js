@@ -102,6 +102,13 @@ gulp.task('bower', 'Include bower stuff', function() {
         .pipe(gulp.dest(config.publicJsComponentsDir));
 });
 
+gulp.task('bower-css', 'Included CSS from bower components', function () {
+    var cssFilter = gulpFilter('*.css');
+    return gulp.src($.mainBowerFiles())
+        .pipe(cssFilter)
+        .pipe(concat('vendor.css'))
+        .pipe(gulp.dest(config.compiledCssDir));
+});
 
 gulp.task('sass', 'Sass -> css', function () {
     return gulp.src(config.allSassFiles)
@@ -131,7 +138,7 @@ gulp.task('watch', 'Watch for changes and build it all.' , ['build'], function()
 
 });
 
-gulp.task('build', 'Build it once', ['bower', 'sass' , 'less', 'ts-lint', 'compile-ts', 'assets']);
+gulp.task('build', 'Build it once', ['bower', 'bower-css', 'sass' , 'less', 'ts-lint', 'compile-ts', 'assets']);
 
 gulp.task('serve', 'Serve the generated stuff.', ['watch'], function() {
 //    gulp.start();

@@ -13,7 +13,7 @@ module demoApp {
         .module('hakkaStack', ['ui.router', 'restangular', 'mm.foundation', 'ui.select', 'ngSanitize'])
         .config(demoApp.config.routesConfig)
         .config((RestangularProvider : restangular.IProvider) => {
-            RestangularProvider.setBaseUrl('http://private-65917-hakkastack.apiary-mock.com');
+            RestangularProvider.setBaseUrl('http://localhost:3000/api');
         })
         .controller('TechnologyController', TechnologyController)
         .controller('HomeController', HomeController)
