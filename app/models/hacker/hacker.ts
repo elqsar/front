@@ -1,7 +1,7 @@
 module demoApp {
     'use strict';
 
-    export class Person {
+    export class Hacker {
         id: number;
         name: string;
     }

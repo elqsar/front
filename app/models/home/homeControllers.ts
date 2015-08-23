@@ -51,11 +51,7 @@ module demoApp {
     }
 
     export interface HomeScope extends ng.IScope {
-        technologies: Array<any>;
-        projects: Array<any>;
-
-        addProject(): any;
-        addTechnology(): any;
+        titles: Array<Object>;
     }
 
     export class HomeController {
@@ -66,41 +62,9 @@ module demoApp {
                     private techsService:TechnologyService,
                     private projectService:ProjectService,
                     private $modal:any) {
-
-            function loadTechnologies() {
-                techsService.getAllTechs().then((techs:Array<Technology>) => {
-                    $scope.technologies = techs;
-                });
-            }
-
-            function loadProjects() {
-                projectService.getAllProjects().then((projects:Array<Project>) => {
-                    $scope.projects = projects;
-                });
-            }
-
-
-            $scope.addProject = () => {
-                $modal.open({
-                    templateUrl: 'template/dialog/add-project.html',
-                    windowClass: 'new-project',
-                    controller: 'AddProjectDialogController'
-                }).result.then(loadProjects, loadProjects);
-            };
-
-            $scope.addTechnology = () => {
-                $modal.open({
-                    templateUrl: 'template/dialog/add-technology.html',
-                    windowClass: 'new-technology',
-                    controller: 'AddTechnologyDialogController'
-                }).result.then(loadTechnologies, loadTechnologies);
-            };
-
-            loadTechnologies();
-            loadProjects();
-
-        }
-
+                        
+            $scope.titles = [{ name: 'All Projects' }, { name: 'My Projects' }];
+    }
     }
 
 }

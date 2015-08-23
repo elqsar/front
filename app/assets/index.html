@@ -4,35 +4,79 @@
     <meta charset="utf-8">
     <title>Hakka Stack</title>
     <style>[ng-cloak] { display: none; }</style>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styless.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
 
-<nav class="top-bar" data-topbar>
-    <ul class="title-area">
-
-        <li class="name">
-            <h1>
-                <a ui-sref="home">
-                    Hakka Stack
+<div class="main">
+    <div class="navigation" ng-controller="MenuController as menu">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+        
+                <li class="name">
+                    <h1>
+                        <a ui-sref="home">
+                            Hakka Stack
+                        </a>
+                    </h1>
+                </li>
+            </ul>
+        </nav>
+        <div class="navigation-avatar">
+            <img src="https://www.gravatar.com/avatar/8fd2e22b097e311ca3ef8d5a13056dc5" 
+                width="75"
+                alt="User Image"
+                class="navigation-avatar-image">
+            <p>Boris Musatov</p>
+        </div>
+        <ul class="navigation-menu">
+            <li>
+                <a ui-sref="projects" class="navigation-menu-item" ng-class="menu.active('/')">
+                    <i class="fa fa-briefcase"></i> Projects
                 </a>
-            </h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
+            </li>
+            <li>
+                <a ui-sref="technologies" class="navigation-menu-item" ng-class="menu.active('/technologies')">
+                     <i class="fa fa-cubes"></i>Technologies
+                </a>
+            </li>
+            <li>
+                <a ui-sref="hackers" class="navigation-menu-item" ng-class="menu.active('/hackers')">
+                    <i class="fa fa-users"></i> Hackers
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <nav class="top-bar" data-topbar ng-controller="MainNavController">
+            <ul class="title-area">
 
-    <section class="top-bar-section">
-    </section>
-</nav>
+                <li class="name">
+                    <h1>
+                        {{ title }}
+                    </h1>
+                </li>
+            </ul>
+            
+            <section class="top-bar-section">
+                <ul class="right">
+                    <li class="has-form" style="background-color: transparent;">
+                        <a href="#"><i class="fa fa-times"></i> Logout</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+        <div ui-view></div>
+    </div>
+</div>
 
-<div ui-view></div>
 
-
-<footer class="row">
+<!--<footer class="row">
     <div class="large-12 columns">
         <hr/>
         <div class="row">
@@ -41,7 +85,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer>-->
 
 <script src="js_components/vendor.js"></script>
 <script src="js/app.js"></script>

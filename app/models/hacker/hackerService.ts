@@ -1,7 +1,7 @@
 module demoApp {
     'use strict';
 
-    export class PersonService {
+    export class HackerService {
 
         public static $inject = [
             'Restangular'
@@ -14,24 +14,24 @@ module demoApp {
             return this.Restangular.all('persons').getList();
         }
 
-        createPerson(person: Person) {
+        createPerson(person: Hacker) {
             return this.Restangular.all('persons').post(person);
         }
 
-        updatePerson(person: Person) {
+        updatePerson(person: Hacker) {
             var personCopy = this.Restangular.copy(person);
             return this.Restangular.one('persons', person.id).post(personCopy);
         }
 
-        deletePerson(person: Person) {
+        deletePerson(person: Hacker) {
             return this.Restangular.one('persons', person.id).remove();
         }
 
-        getPersonTechnologies(person: Person) {
+        getPersonTechnologies(person: Hacker) {
             return this.Restangular.one('persons', person.id).all('technologies');
         }
 
-        setPersonTechnologies(person: Person, technologies: Technology[]) {
+        setPersonTechnologies(person: Hacker, technologies: Technology[]) {
             return this.Restangular.one('persons', person.id).all('technologies').put(technologies);
         }
     }

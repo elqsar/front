@@ -15,6 +15,9 @@
 - npm install
 - bower install
 
+## To add new library
+- tsd install --save ( automatically will be added to app/typings )
+
 
 ## structure
 
@@ -29,6 +32,7 @@
 	- [x] merge js files into 1
 - [x] bower
 - [x] sass / less
+- [x] install new libraries with tsd
 - [ ] material, bootstrap or alike ?
 - "biased" variants as branches 
     - [x] angular

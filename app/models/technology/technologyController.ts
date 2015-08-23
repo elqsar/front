@@ -4,20 +4,20 @@
 module demoApp {
     'use strict';
 
-    export interface MyScope extends ng.IScope {
+    export interface TechnologyScope extends ng.IScope {
         technologies: Array<any>;
+        button: Object;
+        tabs: Array<Object>;
     }
 
     export class TechnologyController {
 
         public static $inject = ['$scope', 'TechnologyService'];
 
-        constructor(private $scope: MyScope, private techsService: TechnologyService) {
-            techsService.getAllTechs().then((techs) => {
-                $scope.technologies = techs;
-            });
+        constructor(private $scope: TechnologyScope, private techsService: TechnologyService) {
+            $scope.button = { title: 'New Technology' };
+            $scope.tabs = [{ name: 'Technologies' }];
         }
-
     }
 
 }

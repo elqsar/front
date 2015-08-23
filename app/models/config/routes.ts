@@ -5,20 +5,23 @@ module demoApp.config {
     export function routesConfig($stateProvider:ng.ui.IStateProvider, $urlRouterProvider:ng.ui.IUrlRouterProvider) {
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('home', {
+        $stateProvider.state('projects', {
             url: '/',
-            controller: 'HomeController',
-            templateUrl: 'template/home.html'
-        }).state('projects', {
-            url: '/projects',
             templateUrl: 'template/projects.html',
             controller: 'ProjectsController'
         }).state('project', {
             url: '/project/:projectId',
             templateUrl: 'template/project.html',
             controller: 'ProjectController'
+        }).state('technologies', {
+            url: '/technologies',
+            templateUrl: 'template/technologies.html',
+            controller: 'TechnologyController'
+        }).state('hackers', {
+            url: '/hackers',
+            templateUrl: 'template/hackers.html',
+            controller: 'HackerController'
         });
-
     }
 
 }

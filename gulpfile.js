@@ -14,6 +14,7 @@ var gulp = require('gulp-help')(require('gulp')),
     minifyCss = require('gulp-minify-css'),
     //batch = require('gulp-batch'),
     gulpFilter = require('gulp-filter'),
+    karma = require('gulp-karma'),
     Config = require('./gulpfile.config');
 
 var config = new Config();
@@ -128,6 +129,17 @@ gulp.task('less', 'Less -> css', function () {
         .pipe(gulp.dest(config.compiledCssDir));
 });
 
+gulp.task('test:unit', ['compile-ts'], function(done){
+   return gulp.src('./notexist')
+    .pipe(karma({
+        configFile: 'test/karma.conf.js',
+        action: 'run'
+    }))
+    .on('error', function(err) {
+        throw err;
+    });
+});
+
 
 gulp.task('watch', 'Watch for changes and build it all.' , ['build'], function() {
     gulp.watch(config.allTypeScript, ['ts-lint', 'compile-ts', 'gen-ts-refs']);
@@ -138,7 +150,7 @@ gulp.task('watch', 'Watch for changes and build it all.' , ['build'], function()
 
 });
 
-gulp.task('build', 'Build it once', ['bower', 'bower-css', 'sass' , 'less', 'ts-lint', 'compile-ts', 'assets']);
+gulp.task('build', 'Build it once', ['bower', 'bower-css', 'sass' , 'less', 'compile-ts', 'assets']);
 
 gulp.task('serve', 'Serve the generated stuff.', ['watch'], function() {
 //    gulp.start();
