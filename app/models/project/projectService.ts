@@ -48,7 +48,7 @@ module demoApp {
             return this.Restangular.one('projects', project.id).all('persons');
         }
 
-        setProjectPersons(project: Project, persons: Person[]) {
+        setProjectPersons(project: Project, persons: Hacker[]) {
             return this.Restangular.one('projects', project.id).all('persons').post(persons);
         }
     }

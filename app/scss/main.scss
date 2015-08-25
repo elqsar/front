@@ -85,10 +85,10 @@ button, .button {
 .tabs {
 	margin: 0;
 	height: 60px;
+	border-bottom: 1px solid #eee;
 	
-	ul.tabs-menu {
-		
-		margin-top: 10px;
+	ul.tabs-menu {	
+		margin-top: 30px;
 		display: inline-block;
 		
 		li {
@@ -122,6 +122,7 @@ button, .button {
 	
 	ul.tabs-menu.add-new-button {
 		float: right;
+		margin-top: 5px;
 		button {
 			padding: 15px;
 		}
@@ -141,6 +142,29 @@ button, .button {
 
 .top-bar {
 	background-color: #212b3f;
+}
+
+.list {
+	-webkit-box-flex: 1;
+	flex: 1 1 .01%;
+	padding: 0;
+}
+
+.item {
+	display: flex;
+	width: 98%;
+	border: 1px solid #eee;
+	min-height: 60px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	-webkit-transition: border .5s ease-in-out;
+	transition: border .5s ease-in-out;
+	border-radius: 2px;
+}
+
+.item:hover {
+	border: 1px solid #b8d7f9
 }
 
 // MODALS:

@@ -7,20 +7,24 @@ module demoApp.config {
 
         $stateProvider.state('projects', {
             url: '/',
-            templateUrl: 'template/projects.html',
+            templateUrl: 'template/project/projects.html',
             controller: 'ProjectsController'
         }).state('project', {
             url: '/project/:projectId',
-            templateUrl: 'template/project.html',
+            templateUrl: 'template/project/project.html',
             controller: 'ProjectController'
         }).state('technologies', {
             url: '/technologies',
-            templateUrl: 'template/technologies.html',
+            templateUrl: 'template/technology/technologies.html',
             controller: 'TechnologyController'
         }).state('hackers', {
             url: '/hackers',
-            templateUrl: 'template/hackers.html',
+            templateUrl: 'template/hacker/hackers.html',
             controller: 'HackerController'
+        }).state('createProject', {
+            url: '/projects/create',
+            templateUrl: 'template/project/create.html',
+            controller: 'ProjectCreateController'
         });
     }
 

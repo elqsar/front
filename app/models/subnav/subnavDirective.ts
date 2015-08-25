@@ -17,21 +17,25 @@ module demoApp {
                 </ul>
                 <ul class="tabs-menu add-new-button">
                     <li>
-                        <button ng-click="createNew(page)" class="button alert">{{ button.title }}</button>
+                        <button ng-click="createNew(page.name)" class="button alert">{{ button.title }}</button>
                     </li>
                 <ul>
             </div>
         `;
         replace = true;
 
-        constructor() {
+        constructor(private $state: ng.ui.IStateService) {
         }
    
         link = (scope: any, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
+            scope.createNew = (page: string) => {
+                this.$state.go(page);
+            }
         }
         
         static factory(): ng.IDirectiveFactory {
-            const directive = () => new SubnavDirective();
+            const directive = ($state: ng.ui.IStateService) => new SubnavDirective($state);
+            directive.$inject = ['$state'];
             return directive;
         }
     }

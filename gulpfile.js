@@ -64,6 +64,7 @@ gulp.task('compile-ts', 'Compile TypeScript and include references to library an
                            target: 'ES5',
                            declarationFiles: false,
                            noExternalResolve: true,
+                           removeComments: true,
                            out : 'app.js'
                        }));
 
@@ -129,18 +130,6 @@ gulp.task('less', 'Less -> css', function () {
         .pipe(gulp.dest(config.compiledCssDir));
 });
 
-gulp.task('test:unit', ['compile-ts'], function(done){
-   return gulp.src('./notexist')
-    .pipe(karma({
-        configFile: 'test/karma.conf.js',
-        action: 'run'
-    }))
-    .on('error', function(err) {
-        throw err;
-    });
-});
-
-
 gulp.task('watch', 'Watch for changes and build it all.' , ['build'], function() {
     gulp.watch(config.allTypeScript, ['ts-lint', 'compile-ts', 'gen-ts-refs']);
     gulp.watch(config.allLessFiles, ['less']);
@@ -160,6 +149,40 @@ gulp.task('serve', 'Serve the generated stuff.', ['watch'], function() {
             livereload: true,
             fallback: 'index.html'
         }));
+});
+
+/**
+ * Compile TypeScript and include references to library and app .d.ts files.
+ */
+gulp.task('compile-ts-test', 'Compile TypeScript tests', ['compile-ts'], function () {
+    var sourceTsFiles = [config.allTypeScriptSpecs,
+                         config.libraryTypeScriptDefinitions];
+
+    var tsResult = gulp.src(sourceTsFiles)
+                       .pipe(tsc({
+                           target: 'ES5',
+                           declarationFiles: false,
+                           noExternalResolve: true,
+                           removeComments: true,
+                           out : 'tests.js'
+                       }));
+
+        tsResult.dts.pipe(gulp.dest(config.tsTestsOutputPath));
+        return tsResult.js
+                        .pipe(gulp.dest(config.tsTestsOutputPath));
+});
+
+gulp.task('test', 'Run all tests', ['compile-ts-test'], function(done) {
+    // Be sure to return the stream
+    return gulp.src('./idontexist')
+        .pipe(karma({
+            configFile: 'test/karma.conf.js',
+            action: 'run'
+        }))
+        .on('error', function(err) {
+            // Make sure failed tests cause gulp to exit non-zero
+            throw err;
+        });
 });
 
 gulp.task('default', 'When ran as "gulp" without exta task, it will run the server.', ['serve']);

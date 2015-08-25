@@ -7,8 +7,10 @@
 /// <reference path='mainnav/mainNavController.ts' />
 /// <reference path='menu/menuController.ts' />
 /// <reference path='hacker/hackerController.ts' />
+/// <reference path='project/projectCreateController.ts' />
 /// <reference path='mainnav/mainNavService.ts' />
 /// <reference path='subnav/subnavDirective.ts' />
+/// <reference path='mainnav/mainNavTitleDirective.ts' />
 /// <reference path='hacker/hackerService.ts' />
 
 
@@ -38,11 +40,13 @@ module demoApp {
         .controller('MainNavController', MainNavController)
         .controller('MenuController', MenuController)
         .controller('HackerController', HackerController)
+        .controller('ProjectCreateController', ProjectCreateController)
 
         .service('TechnologyService', TechnologyService)
         .service('MainNavService', MainNavService)
         .service('ProjectService', ProjectService)
         .service('HackerService', HackerService)
         
+        .directive('title', MainNavTitleDirective.factory())
         .directive('subnav', SubnavDirective.factory());
 }

@@ -23,6 +23,7 @@
 
 ## use
 - run `gulp` to have a local server ready live reload
+- run `gulp test` to run unit tests
 - try `gulp help` to see other available tasks
 
 ### todo:
