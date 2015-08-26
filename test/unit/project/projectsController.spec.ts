@@ -1,5 +1,4 @@
-/// <reference path="../../app/typings/jasmine/jasmine.d.ts"/>
-/// <reference path="../../app/typings/angularjs/angular-mocks.d.ts"/>
+/// <reference path="../spec.d.ts"/>
 
 describe('ProjectsController tests', () => {
 	
@@ -9,7 +8,7 @@ describe('ProjectsController tests', () => {
 	beforeEach(module('hakkaStack'));
 	
 	beforeEach(() => {
-		inject(function($rootScope: ng.IRootScopeService, _$controller_: ng.IControllerService, ProjectService) {
+		inject(function($rootScope: ng.IRootScopeService, ProjectService) {
 			scope = $rootScope.$new();
 			projectService = ProjectService;
 		});

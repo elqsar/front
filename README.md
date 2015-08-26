@@ -1,11 +1,4 @@
-# simple front end "seed" with typescript and gulp
-
-## Variants
-
-- if you want to use it with angular, try :
-```
-	git checkout angular-seed
-```
+# Hakka Stack
 
 ## Setup
 
@@ -15,18 +8,19 @@
 - npm install
 - bower install
 
+## To add new library type definition
+- tsd install your_library --save ( automatically will be added to app/typings )
+
 ## To add new library
-- tsd install --save ( automatically will be added to app/typings )
+- npm install your_library --save ( or --save-dev )
+- bower install your_library --save ( or --save-dev )
 
-
-## structure
-
-## use
-- run `gulp` to have a local server ready live reload
-- run `gulp test` to run unit tests
+## Usage
+- run `gulp` or `npm start` to have a local server ready live reload
+- run `gulp test` or `npm test` to run unit tests
 - try `gulp help` to see other available tasks
 
-### todo:
+## Todo:
 - [ ] gulp
 	- [X] gulp help
 	- [ ] clean-ts task - setup config properly

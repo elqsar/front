@@ -21,7 +21,7 @@ module demoApp {
             });
         }
         
-        private getTitle(): Array<String> {
+        private getTitle(): Array<string> {
             let url = this.$location.url();
             return url.length === 1 ? ['Projects'] : this.MainNavService.createBreadcrumb(url);
         }

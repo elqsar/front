@@ -4,5 +4,9 @@
   "ref": "master",
   "path": "app/typings",
   "bundle": "app/typings/tsd.d.ts",
-  "installed": {}
+  "installed": {
+    "angular-formly/angular-formly.d.ts": {
+      "commit": "fa8d9683f37d07ed79617a6e037916c6718aeb11"
+    }
+  }
 }

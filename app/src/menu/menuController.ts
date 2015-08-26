@@ -14,7 +14,7 @@ module demoApp {
 			this.active = this.getActive;
 		}
 		
-		getActive(path: string) {
+		private getActive(path: string) {
 			return this.$location.path() === path ? 'active' : '';
 		}
 	}
